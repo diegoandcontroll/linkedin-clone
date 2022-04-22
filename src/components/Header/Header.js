@@ -1,7 +1,7 @@
 import React from 'react'
 import './Header.css'
 import { Chat,SupervisorAccount,BusinessCenter, Home,Search, Notifications } from '@mui/icons-material';
-import { HeaderOptions } from './HeaderOptions';
+import { HeaderOptions } from '../Header/HeaderOptions';
 const Header = () => {
   return (
     <div className='header'>

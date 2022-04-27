@@ -6,8 +6,8 @@ import './Login.css'
 const Login = () => {
   const [name, setName] = useState('');
   const [imageProfileUrl, setImageProfileUrl] = useState('');
-  const [email, setEmail] = useState('mamotoh.jojadut@mentonit.net');
-  const [password, setPassword] = useState('abcabc');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const dispatch = useDispatch();
   const handleLogin = (e) => {
     e.preventDefault();

@@ -1,7 +1,16 @@
 import { Avatar } from '@mui/material'
 import React from 'react'
+import { useSelector } from 'react-redux'
+import { selectUser } from '../../features/userSlice'
 import './Sidebar.css'
 const Sidebar = () => {
+  const randomInt = (min, max) => {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+
+    return Math.floor(Math.random() * (max - min)) + min;
+  }
+  const user = useSelector(selectUser);
   const recentItem = (topic) => (
     <div className="sidebar__recentItem">
       <span className="sidebar__hash">#</span>
@@ -11,20 +20,22 @@ const Sidebar = () => {
   return (
     <div className='sidebar'>
       <div className="sidebar__top">
-        <img src="https://media-exp1.licdn.com/dms/image/C5616AQEW9r3O1tNiMw/profile-displaybackgroundimage-shrink_350_1400/0/1616220379011?e=2147483647&v=beta&t=GXPsjO7b5_bwz25fqpWNdE30GA37Tzt_wHackbQ8Rqs" alt="" />
-        <Avatar className='sidebar__avatar'/>
-        <h2>Diego Lucas</h2>
-        <h4>lukasxdp@gmail.com</h4>
+        <img src="https://i.pinimg.com/474x/2d/e8/82/2de882cd4f3992ada3d609e3a183f7a4.jpg" alt="" />
+        <Avatar className='sidebar__avatar' src={user.photoUrl}>
+          {user.email[0]}
+        </Avatar>
+        <h2>{ user.displayName}</h2>
+        <h4>{user.email}</h4>
       </div>
       <div className="sidebar__stats">
         <div className="sidebar__stat">
           <p>Who viewed you</p>
-          <p className="sidebar__statNumber">51</p>
+          <p className="sidebar__statNumber">{ randomInt(5, 150)}</p>
         </div>
 
         <div className="sidebar__stat">
           <p>Views on post</p>
-          <p className="sidebar__statNumber">551</p>
+          <p className="sidebar__statNumber">{ randomInt(100, 2000)}</p>
         </div>
       </div>
       <div className="sidebar__bottom">
